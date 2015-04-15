@@ -216,6 +216,12 @@
             $('#djDebugToolbarHandle').show();
             // set handle position
             var handleTop = djdt.cookie.get('djdttop');
+
+            // Forget handle position if the screen isn't that tall
+            if (($(window).height() - $('#djDebugToolbarHandle').height()) < handleTop) {
+                handleTop = null;
+            }
+
             if (handleTop) {
                 $('#djDebugToolbarHandle').css({top: handleTop + 'px'});
             }
